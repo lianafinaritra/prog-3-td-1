@@ -19,11 +19,9 @@ public class AuthorEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+    private String birthDate;
     private String particularity;
-    private LocalDate birthDate;
-
     public boolean hasParticularity() {
         return particularity != null;
     }
-
 }
