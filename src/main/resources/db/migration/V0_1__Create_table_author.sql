@@ -4,5 +4,6 @@ create table author
     name varchar,
     birth_date  date,
     particularity varchar,
-    primary key (id)
+    primary key (id),
+    constraint name_Author UNIQUE(name)
 );

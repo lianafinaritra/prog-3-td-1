@@ -1,9 +1,9 @@
 package app.prog.controller;
 
 import app.prog.controller.mapper.BookRestMapper;
+import app.prog.controller.model.CreateBook;
+import app.prog.controller.model.UpdateBook;
 import app.prog.controller.response.BookResponse;
-import app.prog.controller.response.CreateBookResponse;
-import app.prog.controller.response.UpdateBookResponse;
 import app.prog.model.BookEntity;
 import app.prog.service.BookService;
 import lombok.AllArgsConstructor;
@@ -25,7 +25,7 @@ public class BookController {
     }
 
     @PostMapping("/books")
-    public List<BookResponse> createBooks(@RequestBody List<CreateBookResponse> toCreate) {
+    public List<BookResponse> createBooks(@RequestBody List<CreateBook> toCreate) {
         List<BookEntity> domain = toCreate.stream()
                 .map(mapper::toDomain)
                 .toList();
@@ -35,7 +35,7 @@ public class BookController {
     }
 
     @PutMapping("/books")
-    public List<BookResponse> updateBooks(@RequestBody List<UpdateBookResponse> toUpdate) {
+    public List<BookResponse> updateBooks(@RequestBody List<UpdateBook> toUpdate) {
         List<BookEntity> domain = toUpdate.stream()
                 .map(mapper::toDomain)
                 .toList();

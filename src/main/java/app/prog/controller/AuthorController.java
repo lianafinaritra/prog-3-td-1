@@ -1,9 +1,10 @@
 package app.prog.controller;
 
 import app.prog.controller.mapper.AuthorRestMapper;
+import app.prog.controller.model.CreateAuthor;
+import app.prog.controller.model.UpdateAuthor;
 import app.prog.controller.response.*;
 import app.prog.model.AuthorEntity;
-import app.prog.model.BookEntity;
 import app.prog.service.AuthorService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +25,7 @@ public class AuthorController {
     }
 
     @PostMapping("/authors")
-    public List<AuthorResponse> createBooks(@RequestBody List<CreateAuthorResponse> toCreate) {
+    public List<AuthorResponse> createBooks(@RequestBody List<CreateAuthor> toCreate) {
         List<AuthorEntity> domain = toCreate.stream()
                 .map(mapper::toDomain)
                 .toList();
@@ -34,7 +35,7 @@ public class AuthorController {
     }
 
     @PutMapping("/authors")
-    public List<AuthorResponse> updateBooks(@RequestBody List<UpdateAuthorResponse> toUpdate) {
+    public List<AuthorResponse> updateBooks(@RequestBody List<UpdateAuthor> toUpdate) {
         List<AuthorEntity> domain = toUpdate.stream()
                 .map(mapper::toDomain)
                 .toList();

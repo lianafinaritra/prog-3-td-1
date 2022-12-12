@@ -1,8 +1,8 @@
 package app.prog.controller.mapper;
 
+import app.prog.controller.model.CreateAuthor;
+import app.prog.controller.model.UpdateAuthor;
 import app.prog.controller.response.AuthorResponse;
-import app.prog.controller.response.CreateAuthorResponse;
-import app.prog.controller.response.UpdateAuthorResponse;
 import app.prog.model.AuthorEntity;
 import org.springframework.stereotype.Component;
 
@@ -17,14 +17,14 @@ public class AuthorRestMapper {
                 .build();
     }
 
-    public AuthorEntity toDomain(CreateAuthorResponse rest) {
+    public AuthorEntity toDomain(CreateAuthor rest) {
         return AuthorEntity.builder()
                 .name(rest.getName())
                 .particularity(rest.getParticularity())
                 .build();
     }
 
-    public AuthorEntity toDomain(UpdateAuthorResponse rest) {
+    public AuthorEntity toDomain(UpdateAuthor rest) {
         return AuthorEntity.builder()
                 .id(rest.getId())
                 .name(rest.getName())

@@ -1,4 +1,4 @@
-package app.prog.controller.response;
+package app.prog.controller.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,8 +7,8 @@ import lombok.Data;
 @AllArgsConstructor
 @Data
 @Builder
-public class UpdateAuthorResponse {
+public class UpdateBook {
     private int id;
-    private String name;
-    private String particularity;
+    private String authorName;
+    private String title;
 }

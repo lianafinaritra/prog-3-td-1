@@ -26,6 +26,10 @@ public class AuthorService {
         return repository.saveAll(toUpdate);
     }
 
+    public Optional<AuthorEntity> searchByName(String authorName){
+        return repository.findAuthorEntityByName(authorName);
+    }
+
     public AuthorEntity deleteAuthor(int id) {
         Optional<AuthorEntity> optional = repository.findById(id);
         if (optional.isPresent()) {
