@@ -18,14 +18,14 @@ public class AuthorController {
     private final AuthorRestMapper mapper;
 
     @GetMapping("/authors")
-    public List<AuthorResponse> getBooks() {
+    public List<AuthorResponse> getAuthors() {
         return service.getAuthors().stream()
                 .map(mapper::toRest)
                 .toList();
     }
 
     @PostMapping("/authors")
-    public List<AuthorResponse> createBooks(@RequestBody List<CreateAuthor> toCreate) {
+    public List<AuthorResponse> createAuthors(@RequestBody List<CreateAuthor> toCreate) {
         List<AuthorEntity> domain = toCreate.stream()
                 .map(mapper::toDomain)
                 .toList();
@@ -35,7 +35,7 @@ public class AuthorController {
     }
 
     @PutMapping("/authors")
-    public List<AuthorResponse> updateBooks(@RequestBody List<UpdateAuthor> toUpdate) {
+    public List<AuthorResponse> updateAuthors(@RequestBody List<UpdateAuthor> toUpdate) {
         List<AuthorEntity> domain = toUpdate.stream()
                 .map(mapper::toDomain)
                 .toList();
@@ -45,7 +45,7 @@ public class AuthorController {
     }
 
     @DeleteMapping("/authors/{authorId}")
-    public AuthorResponse deleteBook(@PathVariable int authorId) {
+    public AuthorResponse deleteAuthor(@PathVariable int authorId) {
         return mapper.toRest(service.deleteAuthor(authorId));
     }
 }

@@ -21,7 +21,7 @@ public class AuthorEntity {
 
     @Column(unique=true)    
     private String name;
-    private String birthDate;
+    private LocalDate birthDate;
     private String particularity;
     public boolean hasParticularity() {
         return particularity != null;

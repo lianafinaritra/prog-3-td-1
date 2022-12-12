@@ -26,10 +26,14 @@ public class BookEntity {
     @JoinColumn(name = "author_id")
     private AuthorEntity author;
 
-    private Integer pageNumber;
+    private int pageNumber;
     private LocalDate releaseDate;
 
     @ManyToMany
+    @JoinTable(
+            name = "book_categories",
+            joinColumns = @JoinColumn(name = "book_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id"))
     private List<CategoryEntity> categories;
 
     public boolean hasAuthor() {
