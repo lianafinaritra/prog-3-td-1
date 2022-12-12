@@ -2,7 +2,7 @@ create table author
 (
     id     serial,
     name varchar,
+    birth_date  date,
     particularity varchar,
-    birth_date date,
     primary key (id)
 );
